@@ -1,0 +1,72 @@
+﻿@model CarsLocation.Models.ProductsModel
+
+@{
+    ViewData["Title"] = "AddNewProduct";
+    Layout = "_LayoutAdmin";
+}
+
+<h1 class="text-center">Add Product</h1>
+<hr />
+<div class="form-center">
+    <div class="col-md-4">
+        <form asp-action="AddNewProduct" id="AddNewProduct">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label class="control-label">Product Name</label>
+                <input asp-for="ProductName" class="form-control" />
+                <span asp-validation-for="ProductName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label"> Upload Image</label>
+                <input type="file" id="fileUpload" class="btn btn-primary fileUpload" style="width:100%">
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Category</label>
+                <select id="CategoryID" name="customer" class="form-control">
+                    <option value="">Select Category</option>
+                </select>
+
+
+
+                <span asp-validation-for="CategoryID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <a asp-action="GetProduct" asp-controller="product" class="float-left">Back to List</a>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Add Product" class="btn btn-primary float-right" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/assets/Product.js"></script>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        getCatogrieslistDrop();
+      $("#AddNewProduct").submit(function (e) {///ajax AddCategory call
+          e.preventDefault();
+          console.log("testing");
+          AddNewProduct();
+        });
+    });
+</script>
+@section Scripts {
+    @{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+}
+}

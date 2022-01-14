@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+
+       <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"] - CarLocationClients</title>
+@*    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />*@
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+@*
+    <link href="~/dtcss/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href="~/dtcss/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+    <link href="~/dtcss/css/dataTables.jqueryui.css" rel="stylesheet" />*@
+    <link href="~/css/style.css" rel="stylesheet" />
+
+
+</head>
+<body>
+    <header class="header">
+
+        <div id="menu-btn" class="fas fa-bars"></div>
+
+        <a href="#" class="logo"> <span>max</span>wheels </a>
+
+        <nav class="navbar">
+            <a href="#home">home</a>
+            <a href="#vehicles">vehicles</a>
+            <a href="#services">services</a>
+            <a href="#featured">featured</a>
+            <a href="#reviews">reviews</a>
+            <a href="#contact">contact</a>
+            <a class="nav-link text-dark" asp-area="" asp-controller="Categories" asp-action="GetCategories">Admin</a>
+               
+            
+        </nav>
+
+        <div id="login-btn">
+            <button asp-controller="Auth" asp-action="Login" class="btn">login</button>
+             <i class="far fa-user"></i>
+        </div>
+       
+
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+    <footer>
+      
+         <section class="footer" id="footer">
+
+        <div class="box-container">
+
+            <div class="box">
+                <h3>our branches</h3>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i> Morocco </a>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i> france </a>
+            </div>
+
+      @*      <div class="box">
+                <h3>quick links</h3>
+                <a href="#"> <i class="fas fa-arrow-right"></i> home </a>
+                <a href="#"> <i class="fas fa-arrow-right"></i> vehicles </a>
+                <a href="#"> <i class="fas fa-arrow-right"></i> services </a>
+                <a href="#"> <i class="fas fa-arrow-right"></i> featured </a>
+                <a href="#"> <i class="fas fa-arrow-right"></i> reviews </a>
+                <a href="#"> <i class="fas fa-arrow-right"></i> contact </a>
+            </div>*@
+
+            <div class="box">
+                <h3>contact info</h3>
+                <a href="#"> <i class="fas fa-phone"></i> +123-456-7890 </a>
+                <a href="#"> <i class="fas fa-envelope"></i> Maxwheelss@gmail.com </a>
+            </div>
+
+            <div class="box">
+                <h3>contact info</h3>
+                <a href="#"> <i class="fab fa-facebook-f"></i> facebook </a>
+                <a href="#"> <i class="fab fa-twitter"></i> twitter </a>
+                <a href="#"> <i class="fab fa-linkedin"></i> linkedin </a>
+            </div>
+
+        </div>
+
+        <div class="credit"> Copyright © 2022 Maxwheels by Zineb Belassiri. All Rights Reserved. </div>
+
+    </section>
+    </footer>
+   
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/assets/Globle.js"></script>
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+    <script src="~/assets/script.js"></script>
+    <script src="~/assets/Register.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

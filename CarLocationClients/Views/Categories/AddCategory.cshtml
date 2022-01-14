@@ -1,0 +1,58 @@
+﻿@model CarsLocation.Models.CategoriesModel
+
+@{
+    ViewData["Title"] = "AddCategory";
+     Layout="_LayoutAdmin";
+}
+
+<h1  class="text-center">Add Category</h1>
+<hr />
+<div class="form-center">
+    <div class="col-md-4">
+        <form asp-action="AddCategory" id="AddCategory-form">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+           @* <div class="form-group">
+                <label asp-for="CategoryID" class="control-label"></label>
+                <input asp-for="CategoryID" class="form-control" />
+                <span asp-validation-for="CategoryID" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+
+                <label class="control-label">Category Name</label>
+                <input asp-for="CategoryName" class="form-control" />
+                <span asp-validation-for="CategoryName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+              <input type="file" id="fileUpload" class="btn btn-primary fileUpload" style="width:100%">
+                  
+            </div>
+           @* <div class="form-group">
+                <label asp-for="ImageSrc" class="control-label"></label>
+                <input asp-for="ImageSrc" class="form-control" />
+                <span asp-validation-for="ImageSrc" class="text-danger"></span>
+            </div>*@
+           <div class="form-group">
+    <a class="btn btn-primary float-left" asp-controller="Categories" asp-action="GetCategories">Back to list</a>
+</div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary float-right" />
+            </div>
+        </form>
+    </div>
+</div>
+
+ <script src="~/lib/jquery/dist/jquery.min.js"></script>  
+    <script src="~/assets/Category.js"></script>
+<script type="text/javascript">   
+        $(document).ready(function () {
+          $("#AddCategory-form").submit(function (e) {///ajax AddCategory call
+              e.preventDefault();
+              console.log("testing");
+              AddCategory();
+            });
+        });
+</script>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+}
